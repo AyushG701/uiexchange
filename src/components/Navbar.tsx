@@ -4,6 +4,7 @@ import MaxWidthWrapper from "./MaxWidthWrapper";
 import { Icons } from "./Icons";
 import Image from "next/image";
 import { useState } from "react";
+import NavItems from "./NavItems";
 
 const Navbar = () => {
   const [showImage, setShowImage] = useState(false);
@@ -39,7 +40,7 @@ const Navbar = () => {
               </div>
 
               <div className="hidden z-50 lg:ml-8 lg:block lg:self-stretch">
-                {/* <NavItems /> */}
+                <NavItems />
               </div>
             </div>
           </div>

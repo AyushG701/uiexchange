@@ -1,6 +1,6 @@
 import express from "express";
 import { getPayloadClient } from "./get-payload";
-import { nextHandler } from "./next-utils";
+import { nextApp, nextHandler } from "./next-utils";
 
 const app = express();
 
@@ -17,6 +17,13 @@ const start = async () => {
   });
 
   app.use((req, res) => nextHandler(req, res));
+
+  nextApp.prepare().then(() => {
+    payload.logger.info("next js started");
+    app.listen(PORT, async () => {
+      payload.logger.info(`Server listening on port ${PORT}`);
+    });
+  });
 };
 
 start();

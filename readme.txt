@@ -36,6 +36,8 @@ server.ts, tsconfig.server.ts and other just use  this commit as reference
 
  in Authentication 
 
+we first buit the client site sign up page with zod as the form validation done in the client side
+now for the server we are goind to use tRPC
 
 
 

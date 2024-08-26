@@ -15,7 +15,6 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 
 const Page = () => {
   const {
@@ -26,6 +25,7 @@ const Page = () => {
     resolver: zodResolver(AuthCredentialsValidator),
   });
 
+  // now trcp for the signup where we get the realtime string type too
   const { data } = trpc.anyApiRoute.useQuery();
   console.log(data);
 

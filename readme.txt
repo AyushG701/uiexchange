@@ -40,8 +40,13 @@ we first buit the client site sign up page with zod as the form validation done 
 now for the server we are goind to use tRPC
 
 
+we setup teh trpc completed now working onth eh sign up page 
 
 
+
+logs 
+was solving the error regarding the trcp access . payload says its forbidden error i need little more research on that 
+so solve thiat afater a wile 
  
 
 

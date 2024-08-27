@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import { Icons } from "./Icons";
@@ -7,16 +6,16 @@ import { useState } from "react";
 import NavItems from "./NavItems";
 import { buttonVariants } from "./ui/button";
 import Cart from "./Cart";
+import { getServerSideUser } from "@/lib/payload-utils";
+import { cookies } from "next/headers";
 
-const Navbar = () => {
-  const [showImage, setShowImage] = useState(false);
-
-  const handleLogoClick = () => {
-    setShowImage(!showImage); // Toggle between the SVG and image
-  };
+const Navbar = async () => {
+  // gets the data from serverside user
+  const nextCookies = cookies();
+  const { user } = await getServerSideUser(nextCookies);
 
   // using mock data for now
-  const user = null;
+  // const user = null
 
   return (
     <div className="bg-white sticky z-50 top-0 inset-x-0 h-16">
@@ -29,18 +28,7 @@ const Navbar = () => {
               {/* logo */}
               <div className="ml-4 flex lg:ml-0">
                 <Link href="/">
-                  <div onClick={handleLogoClick}>
-                    {!showImage ? (
-                      <Icons.logo className="h-10 w-10" />
-                    ) : (
-                      <Image
-                        src="/dragon.webp"
-                        alt="Dragon Logo"
-                        width={40}
-                        height={40}
-                      />
-                    )}
-                  </div>
+                  <div>{<Icons.logo className="h-10 w-10" />}</div>
                 </Link>
               </div>
               {/* navbar left items */}

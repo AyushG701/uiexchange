@@ -48,6 +48,34 @@ logs
 was solving the error regarding the trcp access . payload says its forbidden error i need little more research on that 
 so solve thiat afater a wile 
  
+ log2:
+ email setup used by resend it is simple can be done using api keu and nodemailer for handiling th eothe random
+  but as we need the verified domain for resend for multiple account we can only send email to our account for the testing purpose 
+
+
+comment : error handling and signup page added 
+
+        error handling in the sign-up page where we added some error that occurs from zodError , Conflict or any random error 
+        and we also added that to showup in the html format to render it when email or password is not accourding to the authvalidation
+
+        then we added the sign-in just copied the whole signup and change the text 
+        then added the signIn method in auth-router that handles the signin 
+        during that had problem with the typescript as it is showing the error to the req that we should be able to use from the createContext but has error continued...
+        added ExpressContext=inferAsyncReturnType<typeof createContext> like this  which was soln from gpt  where inferAsyncReturnTypeis fron trcp server
+
+        now the problem is fixed we need the better user interaction 
+        so we added certain info for the routing like if the user is in cart page when he sign -in then we will redirect him to that page instead of the home page
+        if the user = seller then we will send him to the dashboard whichi is /sell  where there can manage the Products
+        if nothing then home page
+        then certain error handling too
+
+        after that we dont want to show the navbar with create account and signin when user are already logged in so 
+        for that we needed the user we get that from our custom payload-utils that we created the getServerSideUser function 
+        and pass the nextcookies to it has cookies has the token to know that user is logged in or not 
+        then after that
+      next_reminder : need to make the navbar dynamic 
+
+
 
 
 

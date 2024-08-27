@@ -28,9 +28,12 @@ const Page = () => {
   // now trcp for the signup where we get the realtime string type too
   const { data } = trpc.anyApiRoute.useQuery();
   console.log(data);
+  // for authentication
+  const { mutate, isLoading } = trpc.auth.createPayLoadUser.useMutation({});
 
   const onSubmit = ({ email, password }: TAuthCredentialsValidator) => {
     console.log("handles the sign up by seing data to server  ");
+    mutate({ email, password });
   };
   return (
     <>

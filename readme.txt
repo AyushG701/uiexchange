@@ -77,5 +77,16 @@ comment : error handling and signup page added
 
 
 
+      comment: added the userNavbar 
+      which is required after we login we want ot show that navbar with teh user profile and other options 
+      it is easier and optimizable if we create a sepearte file for that so we created the userNavbar 
+      and working on the architecture of the model in the excalidraw by vitualizing how it should be 
+      
+      for next day --> work on archeciture of the data model and where we keep our data like enabling the uploads 
+
+      
+
+
+
 
 

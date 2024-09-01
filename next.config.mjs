@@ -2,11 +2,17 @@ import path from "path";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack: (config) => {
-    // Add alias for @/ pointing to the src directory
-    config.resolve.alias["@"] = path.resolve("./src");
-    return config;
-  },
+
+
+  images: {
+		remotePatterns: [
+			{
+				protocol: "http",
+				hostname: "localhost",
+			},
+			
+		],
+	},
 };
 
 export default nextConfig;

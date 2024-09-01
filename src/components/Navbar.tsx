@@ -56,7 +56,8 @@ const Navbar = async () => {
                   )}
 
                   {user ? (
-                    <UserAccountNav user={user} />
+                    // <UserAccountNav user={user} />
+                    <>tis is practive</>
                   ) : (
                     <Link
                       href="/sign-up"

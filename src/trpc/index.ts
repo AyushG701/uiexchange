@@ -1,4 +1,4 @@
-import { getPayloadClient } from "@/get-payload";
+import { getPayloadClient } from "../get-payload";
 import { authRouter } from "./auth-router";
 import { publicProcedure, router } from "./trpc";
 import { QueryValidator } from "../lib/validators/query-validator";
@@ -36,29 +36,33 @@ export const appRouter = router({
       });
 
       const page = cursor || 1;
-
-      const {
-        docs: items,
-        hasNextPage,
-        nextPage,
-      } = await payload.find({
-        collection: "products",
-        where: {
-          approvedForSale: {
-            equals: "approved",
+      try {
+        const response = await payload.find({
+          collection: "products",
+          where: {
+            approvedForSale: {
+              equals: "pending",
+            },
+            ...parsedQueryOpts,
           },
-          ...parsedQueryOpts,
-        },
-        sort,
-        depth: 1,
-        limit,
-        page,
-      });
+          sort,
+          depth: 1,
+          limit,
+          page,
+        });
+        console.log("Full Response:", response);
 
-      return {
-        items,
-        nextPage: hasNextPage ? nextPage : null,
-      };
+        return {
+          items: response.docs || [], // Ensure `docs` is the correct property
+          nextPage: response.hasNextPage ? response.nextPage : null,
+        };
+      } catch (error) {
+        console.error("Error fetching products:", error);
+        return {
+          items: [],
+          nextPage: null,
+        };
+      }
     }),
 });
 

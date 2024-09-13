@@ -88,5 +88,5 @@ comment : error handling and signup page added
 
 
 
-
+working on the next page design and the checkout and the orther through the diagramic model adn trying the pest to work or make it work
 

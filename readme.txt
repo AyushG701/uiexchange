@@ -89,4 +89,6 @@ comment : error handling and signup page added
 
 
 working on the next page design and the checkout and the orther through the diagramic model adn trying the pest to work or make it work
-
+user checkout session management and other checkout page completed and also added the different files in the data and also adding  the different component
+some stripe management left with different id fixing commpeted the different user checkout system and other like adding the proper presistent checkout shopping model, checkout page also completed 
+and also trying to make the protected api for the next session and also adding the thankyou page 

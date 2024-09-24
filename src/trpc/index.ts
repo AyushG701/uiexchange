@@ -36,33 +36,29 @@ export const appRouter = router({
       });
 
       const page = cursor || 1;
-      try {
-        const response = await payload.find({
-          collection: "products",
-          where: {
-            approvedForSale: {
-              equals: "pending",
-            },
-            ...parsedQueryOpts,
-          },
-          sort,
-          depth: 1,
-          limit,
-          page,
-        });
-        console.log("Full Response:", response);
 
-        return {
-          items: response.docs || [], // Ensure `docs` is the correct property
-          nextPage: response.hasNextPage ? response.nextPage : null,
-        };
-      } catch (error) {
-        console.error("Error fetching products:", error);
-        return {
-          items: [],
-          nextPage: null,
-        };
-      }
+      const {
+        docs: items,
+        hasNextPage,
+        nextPage,
+      } = await payload.find({
+        collection: "products",
+        where: {
+          approvedForSale: {
+            equals: "approved",
+          },
+          ...parsedQueryOpts,
+        },
+        sort,
+        depth: 1,
+        limit,
+        page,
+      });
+
+      return {
+        items,
+        nextPage: hasNextPage ? nextPage : null,
+      };
     }),
 });
 

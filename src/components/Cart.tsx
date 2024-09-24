@@ -47,6 +47,7 @@ const Cart = () => {
           {isMounted ? itemCount : 0}
         </span>
       </SheetTrigger>
+
       <SheetContent className="flex w-full flex-col pr-0 sm:max-w-lg">
         <SheetHeader className="space-y-2.5 pr-6">
           <SheetTitle>Cart ({itemCount})</SheetTitle>
@@ -98,7 +99,7 @@ const Cart = () => {
               className="relative mb-4 h-60 w-60 text-muted-foreground"
             >
               <Image
-                src="/hippo-empty-cart.png"
+                src="/empty-cart-logo.webp"
                 fill
                 alt="empty shopping cart hippo"
               />
